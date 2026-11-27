@@ -96,7 +96,7 @@ footer{color:var(--muted);font-size:14px;text-align:center;margin-top:20px;font-
     <div class="banks" id="banks" role="group" aria-label="Банк"></div>
     <div class="rows" id="rows" aria-live="polite"></div>
   </section>
-  <footer>Расчёт предварительный, точные условия подтверждает банк.</footer>
+    <footer>made by Dastan Jeenbekov</footer>
 </main>
 
 <script>
@@ -139,7 +139,7 @@ function render(){
   rows.innerHTML=bank.terms.map(t=>{
     const total=price/(1-t.rate);
     return `<div class="row" style="--c1:${bank.c1};--c2:${bank.c2}"><span class="term">${t.m} мес</span><span class="total">${fmt(total)} сом</span>
-      <span class="sub"><span>${Math.round(t.rate*100)}% по обратному</span><span>${fmt(total/t.m)} сом в месяц</span></span></div>`;
+      <span class="sub"><span>Наценка ${fmt(total-price)} сом</span><span>${fmt(total/t.m)} сом в месяц</span></span></div>`;
   }).join("");
 }
 render();
